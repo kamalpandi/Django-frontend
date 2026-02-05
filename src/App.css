@@ -1,0 +1,250 @@
+/* --- 1. Variables & Global Reset --- */
+:root {
+  --font-main: 'Inter', system-ui, sans-serif;
+  --bg-deep: #0f0f0f;
+  --bg-mid: #1a1a1a;
+  --bg-light: #242424;
+  --bg-card: #2a2a2a;
+
+  --text-primary: rgba(255, 255, 255, 0.87);
+  --text-dim: #888;
+  --accent: #646cff;
+  --accent-glow: #818cf8;
+
+  --border-dim: #333;
+  --border-mid: #444;
+
+  /* Badge Colors */
+  --clr-array: #1e3a8a;
+  --clr-array-txt: #93c5fd;
+  --clr-obj: #451a03;
+  --clr-obj-txt: #fdba74;
+  --clr-num: #4c1d95;
+  --clr-num-txt: #c4b5fd;
+  --clr-str: #064e3b;
+  --clr-str-txt: #6ee7b7;
+  --clr-bool: #7f1d1d;
+  --clr-bool-txt: #fca5a5;
+  --clr-null: #374151;
+  --clr-null-txt: #9ca3af;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: var(--font-main);
+  background-color: var(--bg-light);
+  color: var(--text-primary);
+}
+
+/* --- 2. Portfolio Layout --- */
+.portfolio-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg-deep);
+}
+
+.portfolio-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 10%;
+  background: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.portfolio-content {
+  flex: 1;
+}
+
+.portfolio-footer {
+  text-align: center;
+  padding: 3rem;
+  border-top: 1px solid var(--border-dim);
+  color: var(--text-dim);
+}
+
+/* --- 3. JSON Tool Layout --- */
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.input-pane {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  padding: 4.5rem 2rem 2rem 2rem;
+  border-right: 1px solid var(--border-dim);
+  background-color: var(--bg-mid);
+  position: relative;
+}
+
+.home-button {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.5rem;
+  z-index: 110;
+  padding: 8px 16px;
+  background: var(--bg-deep);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.home-button:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.output-pane {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  background-color: var(--bg-light);
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- 4. THE GRID ENGINE --- */
+.results-grid {
+  display: grid;
+  /* Adjust minmax(220px) to control how many cards per row */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  align-content: start;
+  padding-bottom: 2rem;
+} 
+
+.result-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dim);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 110px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Use the margin you liked for extra spacing control */
+  margin: 10px;
+}
+
+.result-card.clickable {
+  cursor: pointer;
+  border-color: var(--accent);
+}
+
+.result-card.clickable:hover {
+  transform: translateY(-4px);
+  background: #333;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border-color: var(--accent-glow);
+}
+
+.result-key {
+  font-weight: 600;
+  font-family: 'Menlo', monospace;
+  font-size: 0.95rem;
+  color: #fff;
+  word-break: break-all;
+}
+
+/* --- 5. Navigation & Elements --- */
+.breadcrumb-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2rem;
+  padding: 8px 12px;
+  background: var(--bg-mid);
+  border-radius: 12px;
+  border: 1px solid var(--border-dim);
+  width: fit-content;
+}
+
+.breadcrumb-pill {
+  all: unset;
+  cursor: pointer;
+  padding: 4px 12px;
+  color: var(--text-dim);
+  font-family: 'Menlo', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.breadcrumb-pill:hover {
+  background: rgba(100, 108, 255, 0.1);
+  color: var(--accent);
+}
+
+.type-badge {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-array {
+  background: var(--clr-array);
+  color: var(--clr-array-txt);
+}
+
+.badge-object {
+  background: var(--clr-obj);
+  color: var(--clr-obj-txt);
+}
+
+.badge-string {
+  background: var(--clr-str);
+  color: var(--clr-str-txt);
+}
+
+.badge-number {
+  background: var(--clr-num);
+  color: var(--clr-num-txt);
+}
+
+.badge-boolean {
+  background: var(--clr-bool);
+  color: var(--clr-bool-txt);
+}
+
+.badge-null {
+  background: var(--clr-null);
+  color: var(--clr-null-txt);
+}
+.json-textarea {
+  flex: 1;           /* Keeps the grow logic */
+  height: 0;         /* Forces the base height to 0 so flex-grow does the work */
+  min-height: 0;     /* Prevents the browser from enforcing a default height */
+  width: 100%;
+  padding: 15px;
+  font-family: 'Menlo', monospace;
+  font-size: 14px;
+  background-color: var(--bg-deep);
+  color: #e5e5e5;
+  border: 1px solid var(--border-mid);
+  border-radius: 8px;
+  resize: none;
+  outline: none;
+}
