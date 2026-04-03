@@ -12,13 +12,6 @@ export const Portfolio = () => {
             Projects
           </button>
           <button className="about">About</button>
-          <button
-            onClick={() => navigate("/json_tool")}
-            className="nav-cta"
-            style={{ marginRight: "10px" }}
-          >
-            Launch JSON Tool
-          </button>
         </div>
       </nav>
 

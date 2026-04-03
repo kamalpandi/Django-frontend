@@ -1,6 +1,6 @@
 // src/components/ResultsPane.tsx
-import type { Summary, PreviewItem } from '../types';
-import { getTypeClass } from '../utils/jsonHelpers';
+import type { Summary, PreviewItem } from '../../../types';
+import { getTypeClass } from '../../../utils/jsonHelpers';
 
 interface ResultsPaneProps {
   summary: Summary | null;

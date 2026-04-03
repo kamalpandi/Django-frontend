@@ -8,6 +8,13 @@ const PROJECTS = [
     tech: ["React", "TypeScript", "Django"],
     route: "/projects/weather",
   },
+  {
+    id: "json-explorer",
+    title: "JSON X-Ray",
+    description: "Explore, navigate and inspect deeply nested JSON structures.",
+    tech: ["React", "TypeScript"],
+    route: "/projects/json-explorer",
+  },
   // Add future projects here
 ];
 

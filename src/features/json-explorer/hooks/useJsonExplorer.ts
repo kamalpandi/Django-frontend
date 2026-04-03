@@ -1,6 +1,6 @@
 // src/hooks/useJsonExplorer.ts
 import { useState } from 'react';
-import { generateOverview } from '../utils/jsonHelpers';
+import { generateOverview } from '../../../utils/jsonHelpers';
 
 export const useJsonExplorer = () => {
   const [jsonInput, setJsonInput] = useState<string>('');
@@ -19,6 +19,7 @@ export const useJsonExplorer = () => {
       loadJsonData(parsed);
       setError(null);
     } catch (err) {
+      console.log(err)
       setError("Invalid JSON format. Please check syntax.");
       setParsedData(null);
       setCurrentView(null);
