@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import type { WeatherData, FullWeatherData } from "../../../types";
+import config from "../../../config";
 
-const API_BASE_URL = "https://vibi.pythonanywhere.com";
+const API_BASE_URL = config.API_BASE_URL;
 
 export const useWeatherAPI = () => {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);

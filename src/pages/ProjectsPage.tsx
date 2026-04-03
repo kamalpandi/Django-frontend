@@ -15,6 +15,13 @@ const PROJECTS = [
     tech: ["React", "TypeScript"],
     route: "/projects/json-explorer",
   },
+  {
+    id: "todo",
+    title: "Todo List",
+    description: "A simple task manager to track things that need doing.",
+    tech: ["React", "TypeScript", "Django"],
+    route: "/projects/todo",
+  },
   // Add future projects here
 ];
 

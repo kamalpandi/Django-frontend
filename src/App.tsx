@@ -3,6 +3,8 @@ import { Portfolio } from "./pages/Portfolio";
 import { ProjectsPage } from "./pages/ProjectsPage";
 import { WeatherPage } from "./pages/WeatherPage";
 import { JsonExplorerPage } from "./features/json-explorer";
+import { TodoPage } from "./pages/TodoPage";
+
 import "./App.css";
 
 function App() {
@@ -13,6 +15,7 @@ function App() {
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/projects/weather" element={<WeatherPage />} />
         <Route path="/projects/json-explorer" element={<JsonExplorerPage />} />
+        <Route path="/projects/todo" element={<TodoPage />} />
       </Routes>
     </BrowserRouter>
   );
