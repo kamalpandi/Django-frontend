@@ -85,4 +85,27 @@ export const styles: Record<string, React.CSSProperties> = {
     display: "flex",
     flexDirection: "column",
   },
+  statsGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(4, 1fr)",
+    gap: "10px",
+    marginBottom: "20px",
+  },
+  statBox: {
+    background: "#222",
+    padding: "10px",
+    borderRadius: "6px",
+    textAlign: "center",
+    fontSize: "0.9rem",
+    color: "#ccc",
+    border: "1px solid #333",
+  },
+  tabBtn: {
+    background: "transparent",
+    border: "none",
+    padding: "10px 20px",
+    cursor: "pointer",
+    fontSize: "1rem",
+    fontWeight: "bold",
+  },
 };
