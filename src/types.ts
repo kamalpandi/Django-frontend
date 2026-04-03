@@ -1,4 +1,3 @@
-// src/types.ts
 export interface PreviewItem {
     key: string;
     type: string;
@@ -10,9 +9,10 @@ export interface Summary {
     count: number;
     preview: PreviewItem[];
 }
+
 export interface PreviewItem {
     key: string;
     type: string;
     isExpandable: boolean;
-    value?: string; // Add this to hold the string representation of the value
+    value?: string;
 }
