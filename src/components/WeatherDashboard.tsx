@@ -23,11 +23,11 @@ const useWeatherAPI = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
 
-  const API_BASE_URL = "http://127.0.0.1:8000";
+  const API_BASE_URL = "https://vibi.pythonanywhere.com/";
 
   const fetchAvailableCities = async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/weather/get_cities`);
+      const response = await fetch(`${API_BASE_URL}/weather/get_cities/`);
       if (response.ok) {
         const data = await response.json();
         const citiesArray = Array.isArray(data) ? data : data.cities || [];
@@ -41,7 +41,7 @@ const useWeatherAPI = () => {
   const fetchSavedReports = async () => {
     try {
       const response = await fetch(
-        `${API_BASE_URL}/weather/get_essential_reports`,
+        `${API_BASE_URL}/weather/get_essential_reports/`,
       );
       if (response.ok) {
         const data = await response.json();
@@ -64,7 +64,7 @@ const useWeatherAPI = () => {
     setComparisonData([]); // Clear any comparison view
 
     try {
-      const response = await fetch(`${API_BASE_URL}/weather/one_city`, {
+      const response = await fetch(`${API_BASE_URL}/weather/one_city/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ city }),
@@ -91,7 +91,7 @@ const useWeatherAPI = () => {
 
     try {
       const response = await fetch(
-        `${API_BASE_URL}/weather/weather_for_cities`,
+        `${API_BASE_URL}/weather/weather_for_cities/`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -116,7 +116,7 @@ const useWeatherAPI = () => {
     if (!dataToSave || !dataToSave.temp) return;
     try {
       const response = await fetch(
-        `${API_BASE_URL}/weather/save_essential_report`,
+        `${API_BASE_URL}/weather/save_essential_report/`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
