@@ -11,7 +11,12 @@ export const Portfolio = () => {
           <button className="projects" onClick={() => navigate("/projects")}>
             Projects
           </button>
-          <button className="about">About</button>
+          <button 
+            className="about" 
+            onClick={() => window.open("https://www.linkedin.com/in/kamalpandi/", "_blank", "noopener,noreferrer")}
+          >
+            About
+          </button>
         </div>
       </nav>
 
