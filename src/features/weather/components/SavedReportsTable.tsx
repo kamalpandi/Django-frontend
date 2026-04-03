@@ -12,6 +12,7 @@ export const SavedReportsTable: React.FC<Props> = ({
   savedReports,
   savedFullReports,
 }) => {
+  console.log("Full reports:", savedFullReports);
   const [activeTab, setActiveTab] = useState<"essential" | "advanced">(
     "essential",
   );
@@ -90,7 +91,7 @@ export const SavedReportsTable: React.FC<Props> = ({
           <tbody>
             {savedFullReports.map((r, i) => (
               <tr key={i} style={styles.tableRow}>
-                <td style={styles.td}>{r.name}</td>
+                <td style={styles.td}>{r.city_name}</td>
                 <td style={styles.td}>{kelvinToCelsius(r.main.temp)}</td>
                 <td style={styles.td}>{r.wind.speed} m/s</td>
                 <td style={styles.td}>{r.clouds.all}%</td>

@@ -21,7 +21,7 @@ export const FullWeatherResult: React.FC<Props> = ({ data, onSave }) => (
     >
       <div>
         <h2 style={{ marginTop: 0, marginBottom: "5px", color: "#fff" }}>
-          {data.name} ({data.sys.country})
+          {data.city_name} ({data.sys.country})
         </h2>
         <span style={{ color: "#aaa", textTransform: "capitalize" }}>
           {data.weather[0]?.description}

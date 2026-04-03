@@ -29,7 +29,8 @@ export interface WeatherData {
 }
 
 export interface FullWeatherData {
-  name: string;
+  city_name: string;
+  country: string;
   sys: { country: string; sunrise: number; sunset: number };
   coord: { lon: number; lat: number };
   weather: { main: string; description: string; icon: string }[];

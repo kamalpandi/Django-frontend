@@ -138,7 +138,7 @@ export const useWeatherAPI = () => {
         body: JSON.stringify(fullWeatherData),
       });
       if (!res.ok) throw new Error("Failed to save full report");
-      alert(`Advanced report for ${fullWeatherData.name} saved!`);
+      alert(`Advanced report for ${fullWeatherData.city_name} saved!`);
       await fetchSavedReports();
     } catch (err) {
       alert("Error saving full report.");
